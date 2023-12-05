@@ -9,44 +9,42 @@ const PostPage = ({ params }: { params: { id: string } }) => {
   const { control, handleSubmit, onSubmit, register } = useSubmitData();
   return (
     <main>
-      <Hydrate>
-        <section>
-          <Link href="/">⬅️ Back</Link>
-        </section>
+      <section>
+        <Link href="/">⬅️ Back</Link>
+      </section>
 
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Controller
-            control={control}
-            name="title"
-            render={({ field }) => {
-              return (
-                <input
-                  placeholder="Title"
-                  type="text"
-                  {...register("title")}
-                  {...field}
-                />
-              );
-            }}
-          />
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Controller
+          control={control}
+          name="title"
+          render={({ field }) => {
+            return (
+              <input
+                placeholder="Title"
+                type="text"
+                {...register("title")}
+                {...field}
+              />
+            );
+          }}
+        />
 
-          <Controller
-            control={control}
-            name="userId"
-            render={({ field }) => {
-              return (
-                <input
-                  placeholder="User Id"
-                  type="number"
-                  {...register("userId")}
-                  {...field}
-                />
-              );
-            }}
-          />
-          <button type="submit">Submit</button>
-        </form>
-      </Hydrate>
+        <Controller
+          control={control}
+          name="userId"
+          render={({ field }) => {
+            return (
+              <input
+                placeholder="User Id"
+                type="number"
+                {...register("userId")}
+                {...field}
+              />
+            );
+          }}
+        />
+        <button type="submit">Submit</button>
+      </form>
     </main>
   );
 };
